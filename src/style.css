@@ -66,3 +66,29 @@ footer {
   text-align: center;
   margin-top: 20px;
 }
+
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+
+  select {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .city {
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 12px;
+    padding: 5px 0;
+  }
+
+  .time {
+    font-size: 18px;
+  }
+}

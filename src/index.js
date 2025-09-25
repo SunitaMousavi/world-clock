@@ -37,6 +37,16 @@ function updateCityTime() {
       .tz("Asia/Shanghai")
       .format("HH:mm:ss");
   }
+
+  // Update dynamically added cities
+  document.querySelectorAll(".city[data-timezone]").forEach((cityElement) => {
+    let cityTimeZone = cityElement.dataset.timezone;
+    let cityTime = moment().tz(cityTimeZone);
+
+    cityElement.querySelector(".date").innerHTML =
+      cityTime.format("MMMM Do YYYY");
+    cityElement.querySelector(".time").innerHTML = cityTime.format("HH:mm:ss");
+  });
 }
 
 // Dropdown cities
@@ -66,7 +76,7 @@ function changeCity(event) {
     citiesElement.insertAdjacentHTML(
       "beforeend",
       `
-      <div class="city" id="${cityId}">
+      <div class="city" id="${cityId}" data-timezone="${cityTimeZones}">
         <div>
           <h2>${cityName}</h2>
           <div class="date">${cityTime.format("MMMM Do YYYY")}</div>
